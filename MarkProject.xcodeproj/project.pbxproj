@@ -42,7 +42,6 @@
 		CCD83A1323ED9DC700AA35C2 = {
 			isa = PBXGroup;
 			children = (
-				CCD83A3723EDA3D000AA35C2 /* Note.swift */,
 				CCD83A1E23ED9DC700AA35C2 /* MarkProject */,
 				CCD83A1D23ED9DC700AA35C2 /* Products */,
 			);
@@ -59,6 +58,7 @@
 		CCD83A1E23ED9DC700AA35C2 /* MarkProject */ = {
 			isa = PBXGroup;
 			children = (
+				CCD83A3723EDA3D000AA35C2 /* Note.swift */,
 				CCD83A1F23ED9DC700AA35C2 /* AppDelegate.swift */,
 				CCD83A2123ED9DC700AA35C2 /* SceneDelegate.swift */,
 				CCD83A2323ED9DC700AA35C2 /* ViewController.swift */,
