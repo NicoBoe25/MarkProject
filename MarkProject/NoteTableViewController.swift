@@ -10,37 +10,48 @@ import UIKit
 
 class NoteTableViewController: UITableViewController {
 
+    var notes : [Note] = [
+        Note(title: "Note1", content: "Ceci est la note 1 ", date: "12-02-2020", local: "IUT"),
+        Note(title: "Note2", content: "Ceci est la note 2 ", date: "12-02-2020", local: "IUT"),
+        Note(title: "Note3", content: "Ceci est la note 3 ", date: "12-02-2020", local: "IUT"),
+        Note(title: "Note4", content: "Ceci est la note 4 ", date: "12-02-2020", local: "IUT"),
+    ];
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        
         self.navigationItem.leftBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1;
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return notes.count;
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell", for: indexPath)
+        let note = notes[indexPath.row]
+        
+        cell.textLabel?.text = "\(note.title)"
+        cell.detailTextLabel?.text = "\(note.date)"
 
-        // Configure the cell...
 
         return cell
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let note = notes[indexPath.row]
+        print("\(note.title) - \(indexPath)")
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -50,24 +61,27 @@ class NoteTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            notes.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .middle)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
-    /*
+    
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+        let movedNote = notes.remove(at: fromIndexPath.row)
+        notes.insert(movedNote, at: to.row)
+        tableView.reloadData()
     }
-    */
+    
 
     /*
     // Override to support conditional rearranging of the table view.
