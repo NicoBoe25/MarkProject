@@ -38,6 +38,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="JLy-ZV-vgG" kind="presentation" identifier="EditNote" id="18Z-LJ-ema"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -48,7 +51,7 @@
                     <navigationItem key="navigationItem" title="Notes" id="bhz-RC-9LW">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="nbr-7f-vmM">
                             <connections>
-                                <segue destination="hSA-AA-ydh" kind="presentation" id="1Wn-HE-UA8"/>
+                                <segue destination="JLy-ZV-vgG" kind="presentation" identifier="AddNote" id="U41-30-G46"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -57,34 +60,26 @@
             </objects>
             <point key="canvasLocation" x="1315.9420289855072" y="51.5625"/>
         </scene>
-        <!--Table View Controller-->
-        <scene sceneID="mzz-TN-IEV">
+        <!--Root View Controller-->
+        <scene sceneID="sWK-ic-qSs">
             <objects>
-                <tableViewController id="hSA-AA-ydh" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="tI0-7Q-RLb">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="50t-2g-qFz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tableViewController id="Q3K-FC-GUi" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="KEn-q3-tJY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="rRG-yK-gIQ">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <items>
-                                <navigationItem title="Title" id="Hou-Ot-tnh">
-                                    <barButtonItem key="leftBarButtonItem" title="Cancel" id="03d-1z-Sgr"/>
-                                    <barButtonItem key="rightBarButtonItem" title="Save" id="LTv-WI-KNL"/>
-                                </navigationItem>
-                            </items>
-                        </navigationBar>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Title" id="Kqq-OP-eeD">
+                            <tableViewSection headerTitle="Title" id="hGe-eB-7OY">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="fYk-xF-oqj">
-                                        <rect key="frame" x="0.0" y="72" width="414" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="g6Z-r4-tRQ">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fYk-xF-oqj" id="LDw-fm-SQn">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="g6Z-r4-tRQ" id="3Fz-ir-ZXz">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title note" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iYR-Tg-8S5">
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title note" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d1h-iq-ClW">
                                                     <rect key="frame" x="20" y="5" width="374" height="34"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -95,16 +90,16 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Note" id="awG-IC-EoK">
+                            <tableViewSection headerTitle="Note" id="CVj-qC-iIX">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="230" id="S5X-BX-0Ft">
-                                        <rect key="frame" x="0.0" y="172" width="414" height="230"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="230" id="rKK-db-CRQ">
+                                        <rect key="frame" x="0.0" y="128" width="414" height="230"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="S5X-BX-0Ft" id="tb5-mn-5zi">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rKK-db-CRQ" id="cT3-N5-2dg">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="230"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KjG-cP-04Q">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lau-1E-vrU">
                                                     <rect key="frame" x="20" y="11" width="374" height="208"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -117,16 +112,16 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Localisation" id="oZq-A5-EZY">
+                            <tableViewSection headerTitle="Localisation" id="i2a-nu-wxf">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="323" id="Jkk-U9-HXn">
-                                        <rect key="frame" x="0.0" y="458" width="414" height="323"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="323" id="xlt-of-ANa">
+                                        <rect key="frame" x="0.0" y="414" width="414" height="323"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jkk-U9-HXn" id="GZq-yg-rXp">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xlt-of-ANa" id="QzS-yT-Kue">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="323"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ex6-pR-HkV">
+                                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="8cA-2D-NGt">
                                                     <rect key="frame" x="20" y="11" width="374" height="301"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </mapView>
@@ -137,14 +132,33 @@
                             </tableViewSection>
                         </sections>
                         <connections>
-                            <outlet property="dataSource" destination="hSA-AA-ydh" id="JMR-7s-If2"/>
-                            <outlet property="delegate" destination="hSA-AA-ydh" id="6Oo-fj-TrI"/>
+                            <outlet property="dataSource" destination="Q3K-FC-GUi" id="OMo-nX-kaq"/>
+                            <outlet property="delegate" destination="Q3K-FC-GUi" id="Qjr-jo-YEp"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="4Ef-rt-YOi">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="e8d-5r-fgF"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="Utk-8K-qam"/>
+                    </navigationItem>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WmZ-wu-aIP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2175.36231884058" y="51.5625"/>
+            <point key="canvasLocation" x="3365" y="52"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="mwh-N4-aGF">
+            <objects>
+                <navigationController id="JLy-ZV-vgG" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tbI-BS-njc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Q3K-FC-GUi" kind="relationship" relationship="rootViewController" id="gSv-SL-nB8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3NO-cK-mrK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2445" y="52"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WbF-th-Ixt">
@@ -165,4 +179,7 @@
             <point key="canvasLocation" x="405.79710144927537" y="51.5625"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="18Z-LJ-ema"/>
+    </inferredMetricsTieBreakers>
 </document>
