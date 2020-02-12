@@ -91,14 +91,37 @@ class NoteTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
+     /*
+     @IBAction func unwindToEmojiTableView(segue: UIStoryboardSegue) {
+         //KarenUnwind == Save
+         if segue.identifier == "KarenUnwind" {
+             let sourceViewController = segue.source as! AddEditNoteTableViewController
+             if let note = sourceViewController.emoji {
+                 if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                     notes[selectedIndexPath.row] = note
+                     tableView.reloadRows(at: [selectedIndexPath], with: .fade)
+                 }else{//add note
+                     let newIndexPath = IndexPath(row: notes.count, section: 0)
+                     notes.append(note)
+                     tableView.insertRows(at: [newIndexPath], with: .fade)
+                 }
+             }
+         }
+         
+     }*/
+     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "EditNote" {
+            let indexPath = tableView.indexPathForSelectedRow!
+            let note = notes[indexPath.row]
+        
+            let navigationController = segue.destination as! UINavigationController
+            let addEditController = navigationController.topViewController as! AddEditNoteTableViewController
+            addEditController.note = note
+        }
     }
-    */
-
 }

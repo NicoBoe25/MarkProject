@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC20370223F40F14005AFF50 /* AddEditNoteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC20370123F40F14005AFF50 /* AddEditNoteTableViewController.swift */; };
 		CC6ED09D23F4055200B7C694 /* NoteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6ED09C23F4055200B7C694 /* NoteTableViewController.swift */; };
 		CCD83A2023ED9DC700AA35C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD83A1F23ED9DC700AA35C2 /* AppDelegate.swift */; };
 		CCD83A2223ED9DC700AA35C2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD83A2123ED9DC700AA35C2 /* SceneDelegate.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CC20370123F40F14005AFF50 /* AddEditNoteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditNoteTableViewController.swift; sourceTree = "<group>"; };
 		CC6ED09C23F4055200B7C694 /* NoteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewController.swift; sourceTree = "<group>"; };
 		CCD83A1C23ED9DC700AA35C2 /* MarkProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCD83A1F23ED9DC700AA35C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				CCD83A2A23ED9DC800AA35C2 /* LaunchScreen.storyboard */,
 				CCD83A2D23ED9DC800AA35C2 /* Info.plist */,
 				CC6ED09C23F4055200B7C694 /* NoteTableViewController.swift */,
+				CC20370123F40F14005AFF50 /* AddEditNoteTableViewController.swift */,
 			);
 			path = MarkProject;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 				CCD83A2023ED9DC700AA35C2 /* AppDelegate.swift in Sources */,
 				CC6ED09D23F4055200B7C694 /* NoteTableViewController.swift in Sources */,
 				CCD83A2223ED9DC700AA35C2 /* SceneDelegate.swift in Sources */,
+				CC20370223F40F14005AFF50 /* AddEditNoteTableViewController.swift in Sources */,
 				CCD83A3823EDA3D000AA35C2 /* Note.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
