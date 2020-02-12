@@ -63,7 +63,6 @@
         <!--Root View Controller-->
         <scene sceneID="sWK-ic-qSs">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="50t-2g-qFz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tableViewController id="Q3K-FC-GUi" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="KEn-q3-tJY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
@@ -137,10 +136,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="4Ef-rt-YOi">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="e8d-5r-fgF"/>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="Utk-8K-qam"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="e8d-5r-fgF"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Utk-8K-qam"/>
                     </navigationItem>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="50t-2g-qFz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3365" y="52"/>
         </scene>
