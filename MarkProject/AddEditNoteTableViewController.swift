@@ -13,26 +13,27 @@ class AddEditNoteTableViewController: UITableViewController {
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var descTextField: UITextField!
-    @IBOutlet weak var symbolTextField: UITextField!
-    @IBOutlet weak var usageTextField: UITextField!
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var contentTextField: UITextField!
+    @IBOutlet weak var dateTextField: UITextField!
+    @IBOutlet weak var localTextField: UITextField!
     
     var note: Note?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let emoji = emoji {
-            symbolTextField.text = emoji.symbol
-            nameTextField.text = emoji.name
-            descTextField.text = emoji.description
-            usageTextField.text = emoji.usage
+        if let note = note {
+            titleTextField.text = note.title
+            contentTextField.text = note.content
+            dateTextField.text = note.date
+            localTextField.text = note.local
         }
-        updateSaveButtonState()
+        //updateSaveButtonState()
     }
 
-    
+    /*
+     Touche  a ca
     func updateSaveButtonState(){
         let symbol = symbolTextField.text ?? ""
         let name = nameTextField.text ?? ""
@@ -44,12 +45,14 @@ class AddEditNoteTableViewController: UITableViewController {
 
     @IBAction func textEditingChanged(_ sender: UITextField) {
         updateSaveButtonState()
-    }
+    }*/
     
     
 
     // MARK: - Table view data source
-
+    /*
+     //pas touche
+     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 0
@@ -59,7 +62,7 @@ class AddEditNoteTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return 0
     }
-
+    */
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
