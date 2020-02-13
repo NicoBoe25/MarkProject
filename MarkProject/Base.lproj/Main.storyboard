@@ -63,7 +63,7 @@
         <!--Root View Controller-->
         <scene sceneID="sWK-ic-qSs">
             <objects>
-                <tableViewController modalPresentationStyle="fullScreen" id="Q3K-FC-GUi" sceneMemberID="viewController">
+                <tableViewController modalPresentationStyle="fullScreen" id="Q3K-FC-GUi" customClass="AddEditNoteTableViewController" customModule="MarkProject" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="KEn-q3-tJY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -147,6 +147,11 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="contentTextView" destination="lau-1E-vrU" id="0xb-js-eHq"/>
+                        <outlet property="saveButton" destination="Utk-8K-qam" id="NdM-5u-zWk"/>
+                        <outlet property="titleTextField" destination="d1h-iq-ClW" id="viG-YW-dwf"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="50t-2g-qFz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="VpZ-7N-2FT" userLabel="Exit" sceneMemberID="exit"/>

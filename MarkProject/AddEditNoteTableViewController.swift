@@ -14,9 +14,7 @@ class AddEditNoteTableViewController: UITableViewController {
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
     @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var contentTextField: UITextField!
-    @IBOutlet weak var dateTextField: UITextField!
-    @IBOutlet weak var localTextField: UITextField!
+    @IBOutlet weak var contentTextView: UITextView!
     
     var note: Note?
     
@@ -25,17 +23,15 @@ class AddEditNoteTableViewController: UITableViewController {
         
         if let note = note {
             titleTextField.text = note.title
-            contentTextField.text = note.content
-            dateTextField.text = note.date
-            localTextField.text = note.local
+            contentTextView.text = note.content
         }
-        //updateSaveButtonState()
+        updateSaveButtonState()
     }
 
     
     func updateSaveButtonState(){
         let title = titleTextField.text ?? ""
-        let content = contentTextField.text ?? ""
+        let content = contentTextView.text ?? ""
         
         saveButton.isEnabled = !title.isEmpty && !content.isEmpty
     }
@@ -111,18 +107,15 @@ class AddEditNoteTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        //karenUnwind = saveUnwind ^^
         if segue.identifier == "SaveUnwind" {
             let title = titleTextField.text ?? ""
-            let content = contentTextField.text ?? ""
+            let content = contentTextView.text ?? ""
             
             let df = DateFormatter()
             df.dateFormat = "yyyy-MM-dd hh:mm:ss"
             let now = df.string(from: Date())
-            
-            let local = localTextField.text ?? ""
-            
-            note = Note(title: title, content: content, date: now, local: local)
+                        
+            note = Note(title: title, content: content, date: now, local: "")
         }
      
     }
