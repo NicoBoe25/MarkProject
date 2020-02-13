@@ -14,7 +14,7 @@ class AddEditNoteTableViewController: UITableViewController {
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
     @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var contentTextView: UITextView!
+    @IBOutlet weak var contentTextField: UITextField!
     
     var note: Note?
     
@@ -23,7 +23,7 @@ class AddEditNoteTableViewController: UITableViewController {
         
         if let note = note {
             titleTextField.text = note.title
-            contentTextView.text = note.content
+            contentTextField.text = note.content
         }
         updateSaveButtonState()
     }
@@ -31,7 +31,7 @@ class AddEditNoteTableViewController: UITableViewController {
     
     func updateSaveButtonState(){
         let title = titleTextField.text ?? ""
-        let content = contentTextView.text ?? ""
+        let content = contentTextField.text ?? ""
         
         saveButton.isEnabled = !title.isEmpty && !content.isEmpty
     }
@@ -40,6 +40,9 @@ class AddEditNoteTableViewController: UITableViewController {
         updateSaveButtonState()
     }
     
+    @IBAction func textViewChanged(_ sender: UITextView) {
+        updateSaveButtonState()
+    }
     
 
     // MARK: - Table view data source
@@ -109,7 +112,7 @@ class AddEditNoteTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         if segue.identifier == "SaveUnwind" {
             let title = titleTextField.text ?? ""
-            let content = contentTextView.text ?? ""
+            let content = contentTextField.text ?? ""
             
             let df = DateFormatter()
             df.dateFormat = "yyyy-MM-dd hh:mm:ss"

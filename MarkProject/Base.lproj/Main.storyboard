@@ -83,29 +83,33 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textEditingChanged:" destination="Q3K-FC-GUi" eventType="editingChanged" id="dG7-OV-W41"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Note" id="CVj-qC-iIX">
+                            <tableViewSection headerTitle="Note" footerTitle="" id="CVj-qC-iIX">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="230" id="rKK-db-CRQ">
-                                        <rect key="frame" x="0.0" y="128" width="414" height="230"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="234" id="q9T-pP-4Ho">
+                                        <rect key="frame" x="0.0" y="128" width="414" height="234"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rKK-db-CRQ" id="cT3-N5-2dg">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="230"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="q9T-pP-4Ho" id="hk7-KQ-Cco">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="234"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lau-1E-vrU">
-                                                    <rect key="frame" x="20" y="11" width="374" height="208"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                    <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Content" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2iH-Xr-OJN">
+                                                    <rect key="frame" x="13" y="11" width="389" height="212"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <nil key="textColor"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textEditingChanged:" destination="Q3K-FC-GUi" eventType="editingChanged" id="7an-du-f4j"/>
+                                                    </connections>
+                                                </textField>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -114,7 +118,7 @@
                             <tableViewSection headerTitle="Localisation" id="i2a-nu-wxf">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="323" id="xlt-of-ANa">
-                                        <rect key="frame" x="0.0" y="414" width="414" height="323"/>
+                                        <rect key="frame" x="0.0" y="418" width="414" height="323"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xlt-of-ANa" id="QzS-yT-Kue">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="323"/>
@@ -148,7 +152,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="contentTextView" destination="lau-1E-vrU" id="0xb-js-eHq"/>
+                        <outlet property="contentTextField" destination="2iH-Xr-OJN" id="BWK-e4-db7"/>
                         <outlet property="saveButton" destination="Utk-8K-qam" id="NdM-5u-zWk"/>
                         <outlet property="titleTextField" destination="d1h-iq-ClW" id="viG-YW-dwf"/>
                     </connections>
@@ -156,7 +160,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="50t-2g-qFz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="VpZ-7N-2FT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3365" y="52"/>
+            <point key="canvasLocation" x="3363.7681159420295" y="51.5625"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mwh-N4-aGF">
