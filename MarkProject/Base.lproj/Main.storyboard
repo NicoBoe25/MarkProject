@@ -132,6 +132,9 @@
                                                     <rect key="frame" x="365" y="11" width="29" height="29"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="location.fill" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="setUserLocationOnMap:" destination="Q3K-FC-GUi" eventType="touchUpInside" id="EcG-fs-ux2"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -183,12 +186,10 @@
                     </navigationItem>
                     <connections>
                         <outlet property="contentTextField" destination="2iH-Xr-OJN" id="BWK-e4-db7"/>
-                        <outlet property="imageButton" destination="2Xw-YI-bac" id="8gU-2N-qKw"/>
-                        <outlet property="imageView" destination="JJr-kC-lB0" id="1vc-MS-uNQ"/>
-                        <outlet property="map" destination="8cA-2D-NGt" id="n6F-56-lOS"/>
+                        <outlet property="mapView" destination="8cA-2D-NGt" id="7P0-5f-ZU1"/>
                         <outlet property="saveButton" destination="Utk-8K-qam" id="NdM-5u-zWk"/>
                         <outlet property="titleTextField" destination="d1h-iq-ClW" id="viG-YW-dwf"/>
-                        <outlet property="userLocatoinButton" destination="Fqv-GH-l3E" id="zcB-hX-ivE"/>
+                        <outlet property="userLocationButton" destination="Fqv-GH-l3E" id="Iqh-CJ-ucl"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="50t-2g-qFz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

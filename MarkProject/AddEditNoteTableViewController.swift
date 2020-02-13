@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 
-class AddEditNoteTableViewController: UITableViewController {
+class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -16,7 +18,10 @@ class AddEditNoteTableViewController: UITableViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var contentTextField: UITextField!
     
-    @IBOutlet weak var userLocatoinButton: UIButton!
+    @IBOutlet weak var userLocationButton: UIButton!
+    @IBOutlet weak var mapView: MKMapView!
+    var currentLocationStr = "Current location"
+    var locationManager:CLLocationManager!
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var imageButton: UIButton!
@@ -46,66 +51,61 @@ class AddEditNoteTableViewController: UITableViewController {
     }
     
     
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let mUserLocation:CLLocation = locations[0] as CLLocation
+        let center = CLLocationCoordinate2D(latitude: mUserLocation.coordinate.latitude, longitude: mUserLocation.coordinate.longitude)
+        let mRegion = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        mapView.setRegion(mRegion, animated: true)
 
-    // MARK: - Table view data source
-    /*
-     //pas touche
-     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        // Get user's Current Location and Drop a pin
+    let mkAnnotation: MKPointAnnotation = MKPointAnnotation()
+        mkAnnotation.coordinate = CLLocationCoordinate2DMake(mUserLocation.coordinate.latitude, mUserLocation.coordinate.longitude)
+        mkAnnotation.title = self.setUsersClosestLocation(mLattitude: mUserLocation.coordinate.latitude, mLongitude: mUserLocation.coordinate.longitude)
+        mapView.addAnnotation(mkAnnotation)
     }
+    
+    //MARK:- Intance Methods
+    func setUsersClosestLocation(mLattitude: CLLocationDegrees, mLongitude: CLLocationDegrees) -> String {
+        let geoCoder = CLGeocoder()
+        let location = CLLocation(latitude: mLattitude, longitude: mLongitude)
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        geoCoder.reverseGeocodeLocation(location) {
+            (placemarks, error) -> Void in
+
+            if let mPlacemark = placemarks{
+                if let dict = mPlacemark[0].addressDictionary as? [String: Any]{
+                    if let Name = dict["Name"] as? String{
+                        if let City = dict["City"] as? String{
+                            self.currentLocationStr = Name + ", " + City
+                        }
+                    }
+                }
+            }
+        }
+        return currentLocationStr
     }
-    */
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+    
+    
+    //MARK:- Intance Methods
 
-        // Configure the cell...
+    func determineCurrentLocation() {
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
 
-        return cell
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.startUpdatingLocation()
+        }
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    
+    // Button to set current user location on the map
+    @IBAction func setUserLocationOnMap(_ sender: Any) {
+        determineCurrentLocation()
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
