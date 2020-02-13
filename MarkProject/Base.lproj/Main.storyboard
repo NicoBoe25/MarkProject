@@ -136,11 +136,20 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="4Ef-rt-YOi">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="e8d-5r-fgF"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Utk-8K-qam"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="e8d-5r-fgF">
+                            <connections>
+                                <segue destination="VpZ-7N-2FT" kind="unwind" identifier="CancelUnwind" unwindAction="unwindToNoteTableViewWithSegue:" id="DE3-KE-Hz8"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Utk-8K-qam">
+                            <connections>
+                                <segue destination="VpZ-7N-2FT" kind="unwind" identifier="SaveUnwind" unwindAction="unwindToNoteTableViewWithSegue:" id="iXP-EF-YaD"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="50t-2g-qFz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="VpZ-7N-2FT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3365" y="52"/>
         </scene>

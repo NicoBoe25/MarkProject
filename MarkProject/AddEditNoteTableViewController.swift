@@ -108,14 +108,28 @@ class AddEditNoteTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        //karenUnwind = saveUnwind ^^
+        if segue.identifier == "SaveUnwind" {
+            let title = titleTextField.text ?? ""
+            let content = contentTextField.text ?? ""
+            
+            let df = DateFormatter()
+            df.dateFormat = "yyyy-MM-dd hh:mm:ss"
+            let now = df.string(from: Date())
+            
+            let local = localTextField.text ?? ""
+            
+            note = Note(title: title, content: content, date: now, local: local)
+        }
+     
     }
-    */
+    
 
 }
