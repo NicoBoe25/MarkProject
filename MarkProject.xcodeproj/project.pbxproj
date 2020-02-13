@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55AC687823F558D70015110F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55AC687723F558D70015110F /* MapKit.framework */; };
 		CC20370223F40F14005AFF50 /* AddEditNoteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC20370123F40F14005AFF50 /* AddEditNoteTableViewController.swift */; };
 		CC6ED09D23F4055200B7C694 /* NoteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6ED09C23F4055200B7C694 /* NoteTableViewController.swift */; };
 		CCD83A2023ED9DC700AA35C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD83A1F23ED9DC700AA35C2 /* AppDelegate.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		55AC687723F558D70015110F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		CC20370123F40F14005AFF50 /* AddEditNoteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditNoteTableViewController.swift; sourceTree = "<group>"; };
 		CC6ED09C23F4055200B7C694 /* NoteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewController.swift; sourceTree = "<group>"; };
 		CCD83A1C23ED9DC700AA35C2 /* MarkProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -35,17 +37,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55AC687823F558D70015110F /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		55AC687623F558D70015110F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				55AC687723F558D70015110F /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CCD83A1323ED9DC700AA35C2 = {
 			isa = PBXGroup;
 			children = (
 				CCD83A1E23ED9DC700AA35C2 /* MarkProject */,
 				CCD83A1D23ED9DC700AA35C2 /* Products */,
+				55AC687623F558D70015110F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

@@ -102,9 +102,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Content" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2iH-Xr-OJN">
-                                                    <rect key="frame" x="13" y="11" width="389" height="212"/>
+                                                    <rect key="frame" x="20" y="11" width="374" height="212"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
                                                         <action selector="textEditingChanged:" destination="Q3K-FC-GUi" eventType="editingChanged" id="7an-du-f4j"/>
@@ -128,6 +128,11 @@
                                                     <rect key="frame" x="20" y="11" width="374" height="301"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </mapView>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fqv-GH-l3E">
+                                                    <rect key="frame" x="365" y="11" width="29" height="29"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="location.fill" catalog="system"/>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -153,8 +158,10 @@
                     </navigationItem>
                     <connections>
                         <outlet property="contentTextField" destination="2iH-Xr-OJN" id="BWK-e4-db7"/>
+                        <outlet property="map" destination="8cA-2D-NGt" id="n6F-56-lOS"/>
                         <outlet property="saveButton" destination="Utk-8K-qam" id="NdM-5u-zWk"/>
                         <outlet property="titleTextField" destination="d1h-iq-ClW" id="viG-YW-dwf"/>
+                        <outlet property="userLocatoinButton" destination="Fqv-GH-l3E" id="zcB-hX-ivE"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="50t-2g-qFz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -197,6 +204,9 @@
             <point key="canvasLocation" x="405.79710144927537" y="51.5625"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="location.fill" catalog="system" width="64" height="60"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="18Z-LJ-ema"/>
     </inferredMetricsTieBreakers>

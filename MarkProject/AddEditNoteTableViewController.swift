@@ -16,6 +16,8 @@ class AddEditNoteTableViewController: UITableViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var contentTextField: UITextField!
     
+    @IBOutlet weak var userLocatoinButton: UIButton!
+    
     var note: Note?
     
     override func viewDidLoad() {
