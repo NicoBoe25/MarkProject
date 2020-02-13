@@ -18,6 +18,7 @@ class AddEditNoteTableViewController: UITableViewController {
     
     @IBOutlet weak var userLocatoinButton: UIButton!
     
+    
     var note: Note?
     
     override func viewDidLoad() {
@@ -42,9 +43,6 @@ class AddEditNoteTableViewController: UITableViewController {
         updateSaveButtonState()
     }
     
-    @IBAction func textViewChanged(_ sender: UITextView) {
-        updateSaveButtonState()
-    }
     
 
     // MARK: - Table view data source
