@@ -20,6 +20,7 @@ class AddEditNoteTableViewController: UITableViewController {
     @IBOutlet weak var userLocationButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     
+    
     var note: Note?
     
     override func viewDidLoad() {
@@ -44,9 +45,6 @@ class AddEditNoteTableViewController: UITableViewController {
         updateSaveButtonState()
     }
     
-    @IBAction func textViewChanged(_ sender: UITextView) {
-        updateSaveButtonState()
-    }
     
     // Button to set current user location on the map
     
