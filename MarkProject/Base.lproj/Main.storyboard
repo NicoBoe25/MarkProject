@@ -63,9 +63,9 @@
         <!--Root View Controller-->
         <scene sceneID="sWK-ic-qSs">
             <objects>
-                <tableViewController id="Q3K-FC-GUi" sceneMemberID="viewController">
+                <tableViewController modalPresentationStyle="fullScreen" id="Q3K-FC-GUi" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="KEn-q3-tJY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <sections>
@@ -147,9 +147,9 @@
         <!--Navigation Controller-->
         <scene sceneID="mwh-N4-aGF">
             <objects>
-                <navigationController id="JLy-ZV-vgG" sceneMemberID="viewController">
+                <navigationController modalPresentationStyle="fullScreen" id="JLy-ZV-vgG" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tbI-BS-njc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
