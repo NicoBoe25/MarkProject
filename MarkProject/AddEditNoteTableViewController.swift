@@ -32,20 +32,17 @@ class AddEditNoteTableViewController: UITableViewController {
         //updateSaveButtonState()
     }
 
-    /*
-     Touche  a ca
+    
     func updateSaveButtonState(){
-        let symbol = symbolTextField.text ?? ""
-        let name = nameTextField.text ?? ""
-        let desc = descTextField.text ?? ""
-        let usage = usageTextField.text ?? ""
+        let title = titleTextField.text ?? ""
+        let content = contentTextField.text ?? ""
         
-        saveButton.isEnabled = !symbol.isEmpty && !name.isEmpty && !desc.isEmpty && !usage.isEmpty
+        saveButton.isEnabled = !title.isEmpty && !content.isEmpty
     }
 
     @IBAction func textEditingChanged(_ sender: UITextField) {
         updateSaveButtonState()
-    }*/
+    }
     
     
 
