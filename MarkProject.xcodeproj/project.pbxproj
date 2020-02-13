@@ -10,6 +10,7 @@
 		55AC687823F558D70015110F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55AC687723F558D70015110F /* MapKit.framework */; };
 		CC20370223F40F14005AFF50 /* AddEditNoteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC20370123F40F14005AFF50 /* AddEditNoteTableViewController.swift */; };
 		CC6ED09D23F4055200B7C694 /* NoteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6ED09C23F4055200B7C694 /* NoteTableViewController.swift */; };
+		CCC616FC23F55F7A004EE695 /* images in Resources */ = {isa = PBXBuildFile; fileRef = CCC616FB23F55F7A004EE695 /* images */; };
 		CCD83A2023ED9DC700AA35C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD83A1F23ED9DC700AA35C2 /* AppDelegate.swift */; };
 		CCD83A2223ED9DC700AA35C2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD83A2123ED9DC700AA35C2 /* SceneDelegate.swift */; };
 		CCD83A2723ED9DC700AA35C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCD83A2523ED9DC700AA35C2 /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 		55AC687723F558D70015110F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		CC20370123F40F14005AFF50 /* AddEditNoteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditNoteTableViewController.swift; sourceTree = "<group>"; };
 		CC6ED09C23F4055200B7C694 /* NoteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewController.swift; sourceTree = "<group>"; };
+		CCC616FB23F55F7A004EE695 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; name = images; path = MarkProject/images; sourceTree = "<group>"; };
 		CCD83A1C23ED9DC700AA35C2 /* MarkProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCD83A1F23ED9DC700AA35C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCD83A2123ED9DC700AA35C2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 		CCD83A1323ED9DC700AA35C2 = {
 			isa = PBXGroup;
 			children = (
+				CCC616FB23F55F7A004EE695 /* images */,
 				CCD83A1E23ED9DC700AA35C2 /* MarkProject */,
 				CCD83A1D23ED9DC700AA35C2 /* Products */,
 				55AC687623F558D70015110F /* Frameworks */,
@@ -143,6 +146,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCC616FC23F55F7A004EE695 /* images in Resources */,
 				CCD83A2C23ED9DC800AA35C2 /* LaunchScreen.storyboard in Resources */,
 				CCD83A2923ED9DC800AA35C2 /* Assets.xcassets in Resources */,
 				CCD83A2723ED9DC700AA35C2 /* Main.storyboard in Resources */,
