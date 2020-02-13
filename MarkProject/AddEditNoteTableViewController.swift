@@ -18,6 +18,8 @@ class AddEditNoteTableViewController: UITableViewController {
     
     @IBOutlet weak var userLocatoinButton: UIButton!
     
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageButton: UIButton!
     
     var note: Note?
     
