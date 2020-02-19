@@ -13,12 +13,14 @@ class Note{
     var content: String
     var date: String
     var local: String
+    var photo: String
     
     
-    init(title: String, content: String, date: String, local: String) {
+    init(title: String, content: String, date: String, local: String, photo: String) {
         self.title=title
         self.content=content
         self.date=date
         self.local=local
+        self.photo=photo
     }
 }

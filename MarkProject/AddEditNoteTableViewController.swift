@@ -120,7 +120,7 @@ class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, 
             df.dateFormat = "yyyy-MM-dd hh:mm:ss"
             let now = df.string(from: Date())
                         
-            note = Note(title: title, content: content, date: now, local: "")
+            note = Note(title: title, content: content, date: now, local: "", photo: "")
         }
      
     }
