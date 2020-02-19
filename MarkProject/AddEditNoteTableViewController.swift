@@ -23,6 +23,8 @@ class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, 
     var currentLocationStr = "Current location"
     var locationManager:CLLocationManager!
     
+    var currentUserLocation: CLLocation?
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var imageButton: UIButton!
     
@@ -34,6 +36,7 @@ class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, 
         if let note = note {
             titleTextField.text = note.title
             contentTextField.text = note.content
+            currentUserLocation = note.local
         }
         updateSaveButtonState()
     }
@@ -54,6 +57,7 @@ class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, 
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let mUserLocation:CLLocation = locations[0] as CLLocation
+        currentUserLocation = mUserLocation
         let center = CLLocationCoordinate2D(latitude: mUserLocation.coordinate.latitude, longitude: mUserLocation.coordinate.longitude)
         let mRegion = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         mapView.setRegion(mRegion, animated: true)
@@ -119,8 +123,10 @@ class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, 
             let df = DateFormatter()
             df.dateFormat = "yyyy-MM-dd hh:mm:ss"
             let now = df.string(from: Date())
+            
+            let local = currentUserLocation
                         
-            note = Note(title: title, content: content, date: now, local: "")
+            note = Note(title: title, content: content, date: now, local: local!)
         }
      
     }
