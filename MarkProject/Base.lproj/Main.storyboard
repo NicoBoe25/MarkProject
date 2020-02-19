@@ -160,6 +160,9 @@
                                                     <state key="normal" image="photo.on.rectangle" catalog="system">
                                                         <attributedString key="attributedTitle"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="setUserPhoto:" destination="Q3K-FC-GUi" eventType="touchUpInside" id="Q02-d3-mFx"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -186,6 +189,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="contentTextField" destination="2iH-Xr-OJN" id="BWK-e4-db7"/>
+                        <outlet property="imageButton" destination="2Xw-YI-bac" id="rnJ-yp-ywj"/>
+                        <outlet property="imageView" destination="JJr-kC-lB0" id="dcy-hL-GwX"/>
                         <outlet property="mapView" destination="8cA-2D-NGt" id="7P0-5f-ZU1"/>
                         <outlet property="saveButton" destination="Utk-8K-qam" id="NdM-5u-zWk"/>
                         <outlet property="titleTextField" destination="d1h-iq-ClW" id="viG-YW-dwf"/>
