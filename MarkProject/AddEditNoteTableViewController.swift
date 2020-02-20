@@ -43,6 +43,7 @@ class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, 
             titleTextField.text = note.title
             contentTextField.text = note.content
             currentUserLocation = note.local
+            updateMapCurrentUserLocation(location: currentUserLocation!);
         }
         updateSaveButtonState()
     }
@@ -77,13 +78,13 @@ class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, 
         let mUserLocation:CLLocation = locations[0] as CLLocation
         currentUserLocation = mUserLocation
         let center = CLLocationCoordinate2D(latitude: mUserLocation.coordinate.latitude, longitude: mUserLocation.coordinate.longitude)
-        let mRegion = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        let mRegion = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
         mapView.setRegion(mRegion, animated: true)
 
         // Get user's Current Location and Drop a pin
-    let mkAnnotation: MKPointAnnotation = MKPointAnnotation()
+        let mkAnnotation: MKPointAnnotation = MKPointAnnotation()
         mkAnnotation.coordinate = CLLocationCoordinate2DMake(mUserLocation.coordinate.latitude, mUserLocation.coordinate.longitude)
-        mkAnnotation.title = self.setUsersClosestLocation(mLattitude: mUserLocation.coordinate.latitude, mLongitude: mUserLocation.coordinate.longitude)
+        mkAnnotation.title = "Current Location"
         mapView.addAnnotation(mkAnnotation)
     }
     
@@ -120,6 +121,18 @@ class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, 
         if CLLocationManager.locationServicesEnabled() {
             locationManager.startUpdatingLocation()
         }
+    }
+    
+    func updateMapCurrentUserLocation(location: CLLocation) {
+        // zoom
+        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        let mRegion = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.15, longitudeDelta: 0.15))
+        mapView.setRegion(mRegion, animated: true)
+        // Get user's Current Location and Drop a pin
+        let mkAnnotation: MKPointAnnotation = MKPointAnnotation()
+        mkAnnotation.coordinate = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+        mkAnnotation.title = "Note's Location"
+        mapView.addAnnotation(mkAnnotation)
     }
     
     func determineUserPhoto(){
