@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, CLLocationManagerDelegate  {
 
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -29,11 +29,12 @@ class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, 
     @IBOutlet weak var imageButton: UIButton!
     var selectedImage: String?
     
+    
     var note: Note?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
                 
         if let imageToLoad = note?.photo {
             imageView.image  = UIImage(named: imageToLoad)
@@ -47,6 +48,9 @@ class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, 
         updateSaveButtonState()
     }
 
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
     
     func updateSaveButtonState(){
         let title = titleTextField.text ?? ""
@@ -121,21 +125,36 @@ class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, 
             locationManager.startUpdatingLocation()
         }
     }
-    
-    func determineUserPhoto(){
-        print("Clic sur bouton Photo")
-    }
-    
+        
     
     // Button to set current user location on the map
     @IBAction func setUserLocationOnMap(_ sender: Any) {
         determineCurrentLocation()
     }
     
-    // Button to set current user location on the map
+    // Button to set current photo on the view
     @IBAction func setUserPhoto(_ sender: Any) {
-        determineUserPhoto()
+        let image = UIImagePickerController()
+        image.sourceType = .photoLibrary
+        image.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
+        image.allowsEditing = false
+        
+        self.present(image, animated: true, completion: nil)
     }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any])
+        {
+            
+            if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+            {
+                imageView.image = originalImage
+            }else {
+                print("Erreur Image t'es nul")
+            }
+        
+            dismiss(animated: true, completion: nil)
+        }
+    
     
     
     // MARK: - Navigation
