@@ -101,15 +101,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="234"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Content" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2iH-Xr-OJN">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yi2-fI-Ah2">
                                                     <rect key="frame" x="20" y="11" width="374" height="212"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                    <connections>
-                                                        <action selector="textEditingChanged:" destination="Q3K-FC-GUi" eventType="editingChanged" id="7an-du-f4j"/>
-                                                    </connections>
-                                                </textField>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -188,11 +187,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="contentTextField" destination="2iH-Xr-OJN" id="BWK-e4-db7"/>
                         <outlet property="imageButton" destination="2Xw-YI-bac" id="rnJ-yp-ywj"/>
                         <outlet property="imageView" destination="JJr-kC-lB0" id="dcy-hL-GwX"/>
                         <outlet property="mapView" destination="8cA-2D-NGt" id="7P0-5f-ZU1"/>
                         <outlet property="saveButton" destination="Utk-8K-qam" id="NdM-5u-zWk"/>
+                        <outlet property="textField" destination="yi2-fI-Ah2" id="8JE-YP-Xmj"/>
                         <outlet property="titleTextField" destination="d1h-iq-ClW" id="viG-YW-dwf"/>
                         <outlet property="userLocationButton" destination="Fqv-GH-l3E" id="Iqh-CJ-ucl"/>
                     </connections>
