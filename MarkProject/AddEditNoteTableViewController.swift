@@ -16,7 +16,7 @@ class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, 
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
     @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var textField: UITextView!
+    @IBOutlet weak var textView: UITextView!
     
     @IBOutlet weak var userLocationButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
@@ -35,8 +35,8 @@ class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        textField.layer.borderWidth = 1
-        textField.layer.borderColor = UIColor.systemGray.cgColor
+        textView.layer.borderWidth = 1
+        textView.layer.borderColor = UIColor.systemGray.cgColor
         
                 
         if let imageToLoad = note?.photo {
@@ -45,7 +45,7 @@ class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, 
         
         if let note = note {
             titleTextField.text = note.title
-            textField.text = note.content
+            textView.text = note.content
             currentUserLocation = note.local
             updateMapCurrentUserLocation(location: currentUserLocation!);
         }
@@ -58,7 +58,7 @@ class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, 
     
     func updateSaveButtonState(){
         let title = titleTextField.text ?? ""
-        let content = textField.text ?? ""
+        let content = textView.text ?? ""
         
         saveButton.isEnabled = !title.isEmpty && !content.isEmpty
     }
@@ -185,7 +185,7 @@ class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, 
         // Pass the selected object to the new view controller.
         if segue.identifier == "SaveUnwind" {
             let title = titleTextField.text ?? ""
-            let content = textField.text ?? ""
+            let content = textView.text ?? ""
             
             let df = DateFormatter()
             df.dateFormat = "yyyy-MM-dd hh:mm:ss"
