@@ -11,10 +11,10 @@ import UIKit
 class NoteTableViewController: UITableViewController {
 
     var notes : [Note] = [
-        Note(title: "Note1", content: "Ceci est la note 1 ", date: "12-02-2020"),
-        Note(title: "Note2", content: "Ceci est la note 2 ", date: "12-02-2020"),
-        Note(title: "Note3", content: "Ceci est la note 3 ", date: "12-02-2020"),
-        Note(title: "Note4", content: "Ceci est la note 4 ", date: "12-02-2020"),
+        Note(title: "Note1", content: "Ceci est la note 1 ", date: "17-02-2020 10:51:13", local: "IUT", photo: "JFC.png"),
+        Note(title: "Note2", content: "Ceci est la note 2 ", date: "28-03-2020 11:52:14", local: "IUT", photo: "Paladomas.jpg"),
+        Note(title: "Note3", content: "Ceci est la note 3 ", date: "12-02-2020 11:53:13", local: "IUT", photo: "GierschProject.jpg"),
+        Note(title: "Note4", content: "Ceci est la note 4 ", date: "02-01-2020 11:54:13", local: "IUT", photo: "PhotoDeMoi")
     ];
     
     
@@ -52,6 +52,8 @@ class NoteTableViewController: UITableViewController {
         let note = notes[indexPath.row]
         print("\(note.title) - \(indexPath)")
     }
+    
+    
 
     /*
     // Override to support conditional editing of the table view.

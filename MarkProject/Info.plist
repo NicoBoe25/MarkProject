@@ -8,6 +8,12 @@
     <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
     <string>Need location for geolocator plugin.</string>
      
+     <key>NSPhotoLibraryUsageDescription</key>
+     <string> photos description.</string>
+     
+     <key>NSPhotoLibraryAddUsageDescription</key>
+     <string> photos add description.</string>
+     
     <key>NSLocationWhenInUseUsageDescription</key>
     <string>Need location for geolocator plugin.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>

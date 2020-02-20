@@ -27,11 +27,17 @@ class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, 
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var imageButton: UIButton!
+    var selectedImage: String?
     
     var note: Note?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+                
+        if let imageToLoad = note?.photo {
+            imageView.image  = UIImage(named: imageToLoad)
+        }
         
         if let note = note {
             titleTextField.text = note.title
@@ -52,6 +58,18 @@ class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, 
     @IBAction func textEditingChanged(_ sender: UITextField) {
         updateSaveButtonState()
     }
+    
+    
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        // 1: try loading the "Detail" view controller and typecasting it to be DetailViewController
+//        if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
+//            // 2: success! Set its selectedImage property
+//            vc.selectedImage = pictures[indexPath.row]
+//
+//            // 3: now push it onto the navigation controller
+//            navigationController?.pushViewController(vc, animated: true)
+//        }
+//    }
     
     
     
@@ -104,11 +122,21 @@ class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, 
         }
     }
     
+    func determineUserPhoto(){
+        print("Clic sur bouton Photo")
+    }
+    
     
     // Button to set current user location on the map
     @IBAction func setUserLocationOnMap(_ sender: Any) {
         determineCurrentLocation()
     }
+    
+    // Button to set current user location on the map
+    @IBAction func setUserPhoto(_ sender: Any) {
+        determineUserPhoto()
+    }
+    
     
     // MARK: - Navigation
 
@@ -127,6 +155,7 @@ class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, 
             let local = currentUserLocation
                         
             note = Note(title: title, content: content, date: now, local: local!)
+            note = Note(title: title, content: content, date: now, local: "", photo: "")
         }
      
     }
