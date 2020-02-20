@@ -16,7 +16,7 @@ class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, 
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
     @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var contentTextField: UITextField!
+    @IBOutlet weak var textField: UITextView!
     
     @IBOutlet weak var userLocationButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
@@ -34,7 +34,10 @@ class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        textField.layer.borderWidth = 1
+        textField.layer.borderColor = UIColor.systemGray.cgColor
+        
                 
         if let imageToLoad = note?.photo {
             imageView.image  = UIImage(named: imageToLoad)
@@ -42,8 +45,9 @@ class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, 
         
         if let note = note {
             titleTextField.text = note.title
-            contentTextField.text = note.content
+            textField.text = note.content
             currentUserLocation = note.local
+            updateMapCurrentUserLocation(location: currentUserLocation!);
         }
         updateSaveButtonState()
     }
@@ -54,7 +58,7 @@ class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, 
     
     func updateSaveButtonState(){
         let title = titleTextField.text ?? ""
-        let content = contentTextField.text ?? ""
+        let content = textField.text ?? ""
         
         saveButton.isEnabled = !title.isEmpty && !content.isEmpty
     }
@@ -81,13 +85,13 @@ class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, 
         let mUserLocation:CLLocation = locations[0] as CLLocation
         currentUserLocation = mUserLocation
         let center = CLLocationCoordinate2D(latitude: mUserLocation.coordinate.latitude, longitude: mUserLocation.coordinate.longitude)
-        let mRegion = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        let mRegion = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
         mapView.setRegion(mRegion, animated: true)
 
         // Get user's Current Location and Drop a pin
-    let mkAnnotation: MKPointAnnotation = MKPointAnnotation()
+        let mkAnnotation: MKPointAnnotation = MKPointAnnotation()
         mkAnnotation.coordinate = CLLocationCoordinate2DMake(mUserLocation.coordinate.latitude, mUserLocation.coordinate.longitude)
-        mkAnnotation.title = self.setUsersClosestLocation(mLattitude: mUserLocation.coordinate.latitude, mLongitude: mUserLocation.coordinate.longitude)
+        mkAnnotation.title = "Current Location"
         mapView.addAnnotation(mkAnnotation)
     }
     
@@ -125,7 +129,23 @@ class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, 
             locationManager.startUpdatingLocation()
         }
     }
-        
+    
+    func updateMapCurrentUserLocation(location: CLLocation) {
+        // zoom
+        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        let mRegion = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.15, longitudeDelta: 0.15))
+        mapView.setRegion(mRegion, animated: true)
+        // Get user's Current Location and Drop a pin
+        let mkAnnotation: MKPointAnnotation = MKPointAnnotation()
+        mkAnnotation.coordinate = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+        mkAnnotation.title = "Note's Location"
+        mapView.addAnnotation(mkAnnotation)
+    }
+    
+    func determineUserPhoto(){
+        print("Clic sur bouton Photo")
+    }
+    
     
     // Button to set current user location on the map
     @IBAction func setUserLocationOnMap(_ sender: Any) {
@@ -165,7 +185,7 @@ class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, 
         // Pass the selected object to the new view controller.
         if segue.identifier == "SaveUnwind" {
             let title = titleTextField.text ?? ""
-            let content = contentTextField.text ?? ""
+            let content = textField.text ?? ""
             
             let df = DateFormatter()
             df.dateFormat = "yyyy-MM-dd hh:mm:ss"

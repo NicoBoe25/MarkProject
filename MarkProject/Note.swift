@@ -22,7 +22,7 @@ class Note{
         self.title=title
         self.content=content
         self.date=date
-        self.local=CLLocation(latitude: 0, longitude: 0)
+        self.local=CLLocation(latitude: 47.6, longitude: 6.8)
         self.photo=photo
     }
     
