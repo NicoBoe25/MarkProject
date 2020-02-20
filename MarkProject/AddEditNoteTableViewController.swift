@@ -10,13 +10,14 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, CLLocationManagerDelegate  {
+class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, CLLocationManagerDelegate, UITextViewDelegate  {
 
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var textView: UITextView!
+    var contentTextView: String = ""
     
     @IBOutlet weak var userLocationButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
@@ -34,6 +35,8 @@ class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        textView.delegate = self
         
         textView.layer.borderWidth = 1
         textView.layer.borderColor = UIColor.systemGray.cgColor
@@ -66,6 +69,12 @@ class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, 
     @IBAction func textEditingChanged(_ sender: UITextField) {
         updateSaveButtonState()
     }
+    
+    func textViewDidChange(_ sender: UITextView) {
+        updateSaveButtonState()
+        contentTextView = textView.text
+    }
+    
     
     
 //    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -176,7 +185,8 @@ class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, 
         }
     
     
-    
+    //a Modifier erreur local
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -185,7 +195,7 @@ class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, 
         // Pass the selected object to the new view controller.
         if segue.identifier == "SaveUnwind" {
             let title = titleTextField.text ?? ""
-            let content = textView.text ?? ""
+            let content = contentTextView
             
             let df = DateFormatter()
             df.dateFormat = "yyyy-MM-dd hh:mm:ss"
