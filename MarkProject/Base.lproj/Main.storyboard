@@ -191,7 +191,7 @@
                         <outlet property="imageView" destination="JJr-kC-lB0" id="dcy-hL-GwX"/>
                         <outlet property="mapView" destination="8cA-2D-NGt" id="7P0-5f-ZU1"/>
                         <outlet property="saveButton" destination="Utk-8K-qam" id="NdM-5u-zWk"/>
-                        <outlet property="textField" destination="yi2-fI-Ah2" id="8JE-YP-Xmj"/>
+                        <outlet property="textView" destination="yi2-fI-Ah2" id="8JE-YP-Xmj"/>
                         <outlet property="titleTextField" destination="d1h-iq-ClW" id="viG-YW-dwf"/>
                         <outlet property="userLocationButton" destination="Fqv-GH-l3E" id="Iqh-CJ-ucl"/>
                     </connections>
