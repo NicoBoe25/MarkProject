@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, CLLocationManagerDelegate  {
+class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, CLLocationManagerDelegate, UITextViewDelegate {
 
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -34,6 +34,8 @@ class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        textField.delegate = self
         
         textField.layer.borderWidth = 1
         textField.layer.borderColor = UIColor.systemGray.cgColor
@@ -64,6 +66,10 @@ class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, 
     }
 
     @IBAction func textEditingChanged(_ sender: UITextField) {
+        updateSaveButtonState()
+    }
+    
+     func textViewDidChange(_ textView: UITextView) {
         updateSaveButtonState()
     }
     
