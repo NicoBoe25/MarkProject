@@ -203,7 +203,7 @@ class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, 
             
             let local = currentUserLocation
                         
-            note = Note(title: title, content: content, date: now, local: local!, photo: "")
+            note = Note(title: title, content: content, date: now, local: local ?? CLLocation(latitude: 47.6, longitude: 6.8), photo: "")
         }
      
     }
