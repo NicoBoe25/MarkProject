@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, CLLocationManagerDelegate, UITextViewDelegate {
+class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, CLLocationManagerDelegate, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -74,20 +74,6 @@ class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, 
         updateSaveButtonState()
         contentTextView = textView.text
     }
-    
-    
-    
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        // 1: try loading the "Detail" view controller and typecasting it to be DetailViewController
-//        if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
-//            // 2: success! Set its selectedImage property
-//            vc.selectedImage = pictures[indexPath.row]
-//
-//            // 3: now push it onto the navigation controller
-//            navigationController?.pushViewController(vc, animated: true)
-//        }
-//    }
-    
     
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -162,27 +148,25 @@ class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, 
     }
     
     // Button to set current photo on the view
-    @IBAction func setUserPhoto(_ sender: Any) {
-        let image = UIImagePickerController()
-        image.sourceType = .photoLibrary
-        image.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
-        image.allowsEditing = false
+    @objc func setUserPhoto(_ sender: Any) {
+        let pickerController = UIImagePickerController()
+        pickerController.sourceType = .photoLibrary
+        pickerController.delegate = self
+        pickerController.allowsEditing = false
         
-        self.present(image, animated: true, completion: nil)
+        self.present(pickerController, animated: true, completion: nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any])
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         {
-            
-            if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
-            {
-                imageView.image = originalImage
-            }else {
-                print("Erreur Image t'es nul")
-            }
-        
-            dismiss(animated: true, completion: nil)
+            imageView.image = originalImage
+        }else {
+            print("Erreur Image t'es nul")
         }
+        
+        dismiss(animated: true, completion: nil)
+    }
     
     
     //a Modifier erreur local
@@ -202,7 +186,7 @@ class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, 
             let now = df.string(from: Date())
             
             let local = currentUserLocation
-                        
+            
             note = Note(title: title, content: content, date: now, local: local ?? CLLocation(latitude: 47.6, longitude: 6.8), photo: "")
         }
      
