@@ -14,11 +14,11 @@ class Note{
     var title: String
     var content: String
     var date: String
-    var local: CLLocation
-    var photo: String
+    var local: CLLocation?
+    var photo: UIImage?
     
     
-    init(title: String, content: String, date: String, photo: String) {
+    init(title: String, content: String, date: String, photo: UIImage?) {
         self.title=title
         self.content=content
         self.date=date
@@ -26,7 +26,7 @@ class Note{
         self.photo=photo
     }
     
-    init(title: String, content: String, date: String, local: CLLocation, photo: String) {
+    init(title: String, content: String, date: String, local: CLLocation?, photo: UIImage?) {
         self.title=title
         self.content=content
         self.date=date

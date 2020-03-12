@@ -41,16 +41,12 @@ class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, 
         textView.layer.borderWidth = 1
         textView.layer.borderColor = UIColor.systemGray.cgColor
         
-                
-        if let imageToLoad = note?.photo {
-            imageView.image  = UIImage(named: imageToLoad)
-        }
-        
         if let note = note {
             titleTextField.text = note.title
             textView.text = note.content
             currentUserLocation = note.local
             updateMapCurrentUserLocation(location: currentUserLocation!);
+            imageView.image = note.photo
         }
         updateSaveButtonState()
     }
@@ -187,7 +183,9 @@ class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, 
             
             let local = currentUserLocation
             
-            note = Note(title: title, content: content, date: now, local: local ?? CLLocation(latitude: 47.6, longitude: 6.8), photo: "")
+            let photo = imageView.image
+            
+            note = Note(title: title, content: content, date: now, local: local ?? CLLocation(latitude: 47.6, longitude: 6.8), photo: photo)
         }
      
     }
