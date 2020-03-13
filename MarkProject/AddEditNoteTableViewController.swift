@@ -175,7 +175,7 @@ class AddEditNoteTableViewController: UITableViewController, MKMapViewDelegate, 
         // Pass the selected object to the new view controller.
         if segue.identifier == "SaveUnwind" {
             let title = titleTextField.text ?? ""
-            let content = contentTextView
+            let content = textView.text ?? ""
             
             let df = DateFormatter()
             df.dateFormat = "yyyy-MM-dd hh:mm:ss"
